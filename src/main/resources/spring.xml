@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+       default-init-method="init" default-destroy-method="destroy">
+
+
+   <bean id="actor" class="com.thiethaa.entity.Actor">
+       <property name="name" value="Angelina Jolie"/>
+   </bean>
+    <bean id="actor1" class="com.thiethaa.entity.Actor">
+        <property name="name" value="Leonardo D' Caprio"/>
+    </bean>
+    <bean id="actor2" class="com.thiethaa.entity.Actor">
+        <property name="name" value="Bruce Willis"/>
+    </bean>
+
+    <bean id="movie" class="com.thiethaa.entity.Movie">
+        <property name="movie" value="Salt"/>
+    </bean>
+    <bean id="movie1" class="com.thiethaa.entity.Movie">
+        <property name="movie" value="Titanic"/>
+    </bean>
+    <bean id="movie2" class="com.thiethaa.entity.Movie">
+        <property name="movie" value="Violent"/>
+    </bean>
+
+    <bean id="listInfo" class="com.thiethaa.info.ListInfo">
+        <property name="actorList">
+            <list>
+                <ref bean="actor"/>
+                <ref bean="actor1"/>
+                <ref bean="actor2"/>
+                <ref bean="actor"/>
+                <ref bean="actor1"/>
+                <ref bean="actor2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="setInfo" class="com.thiethaa.info.SetInfo">
+        <property name="actorSet">
+            <set>
+                <ref bean="actor"/>
+                <ref bean="actor1"/>
+                <ref bean="actor2"/>
+                <ref bean="actor"/>
+                <ref bean="actor1"/>
+                <ref bean="actor2"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="mapInfo" class="com.thiethaa.info.MapInfo">
+        <property name="mapInfo">
+            <map>
+                <entry key-ref="actor" value-ref="movie"/>
+                <entry key-ref="actor1" value-ref="movie1"/>
+                <entry key-ref="actor2" value-ref="movie2"/>
+            </map>
+        </property>
+    </bean>
+</beans>
